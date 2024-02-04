@@ -10,15 +10,13 @@ def roman_to_int(roman_string):
             'D': 500,
             'M': 1000}
     res = 0
-    length = len(roman_string)
     if not isinstance(roman_string, str) or roman_string is None:
         return 0
+    length = len(roman_string)
     for i in range(length):
         if (length > 1 and i < length - 1) and rom_dict[roman_string[i + 1]] >\
                 rom_dict[roman_string[i]]:
-            res += rom_dict[roman_string[i + 1]] - rom_dict[roman_string[i]]
+            res -= rom_dict[roman_string[i]]
         else:
-            if length == 2:
-                break
             res += rom_dict[roman_string[i]]
     return res
