@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 def roman_to_int(roman_string):
-    roman_dict = {
+    rom_dict = {
             'I': 1,
             'V': 5,
             'X': 10,
@@ -10,12 +10,15 @@ def roman_to_int(roman_string):
             'D': 500,
             'M': 1000}
     res = 0
+    length = len(roman_string)
     if not isinstance(roman_string, str) or roman_string is None:
         return 0
-    for i in range(len(roman_string)):
-        if i > 0 and roman_dict[roman_string[i]] >\
-                roman_dict[roman_string[i - 1]]:
-            res -= roman_dict[roman_string[i]]
+    for i in range(length):
+        if (length > 1 and i < length - 1) and rom_dict[roman_string[i + 1]] >\
+                rom_dict[roman_string[i]]:
+            res += rom_dict[roman_string[i + 1]] - rom_dict[roman_string[i]]
         else:
-            res += roman_dict[roman_string[i]]
-    return res if res > 0 else -1 * res
+            if length == 2:
+                break
+            res += rom_dict[roman_string[i]]
+    return res
