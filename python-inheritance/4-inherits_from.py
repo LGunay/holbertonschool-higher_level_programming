@@ -4,6 +4,4 @@
 
 def inherits_from(obj, a_class):
     '''define function'''
-    if issubclass(type(obj), a_class):
-        return True
-    return False
+    return type(obj) is not class and isinstance(obj, a_class)
