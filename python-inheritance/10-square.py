@@ -9,5 +9,5 @@ class Square(Rectangle):
     """Square"""
     def __init__(self, size):
         self.__size = size
-        self.inreger_validator("size", size)
+        super().inreger_validator("size", size)
         super().__init__(size, size)
