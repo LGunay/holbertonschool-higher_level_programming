@@ -2,7 +2,7 @@
 '''Geometry module'''
 
 
-class BaseGeometry():
+class BaseGeometry:
     '''define class'''
     def area(self):
         raise Exception('area() is not implemented')
