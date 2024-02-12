@@ -42,24 +42,24 @@ class Rectangle(Base):
         if isinstance(value, int):
             self.__height = value
         else:
-            raise TypeError("width must be an integer")
+            raise TypeError("height must be an integer")
         if value <= 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("height must be >= 0")
 
     @x.setter
     def x(self, value):
         if isinstance(value, int):
             self.__x = value
         else:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be >= 0")
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
 
     @y.setter
     def y(self, value):
         if isinstance(value, int):
             self.__y = value
         else:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be >= 0")
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
