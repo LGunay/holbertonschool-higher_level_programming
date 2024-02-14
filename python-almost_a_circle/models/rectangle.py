@@ -85,8 +85,12 @@ class Rectangle(Base):
                 .format(self.id, self.__x,
                         self.__y, self.__width, self.__height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''update rectangle'''
         arguments = ['id', 'width', 'height', 'x', 'y']
-        for i in range(len(args)):
-            setattr(self, arguments[i], args[i])
+        if args:
+            for i in range(len(args)):
+                setattr(self, arguments[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
