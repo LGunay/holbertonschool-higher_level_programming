@@ -67,4 +67,3 @@ class Base:
         except Exception as _:
             pass
         return r
-
