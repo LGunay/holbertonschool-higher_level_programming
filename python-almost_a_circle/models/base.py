@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 '''Base class'''
+import json
+
 
 
 class Base:
@@ -12,3 +14,16 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        '''update Base'''
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        filename = list_objs + "json"
+        if list_objs is None:
