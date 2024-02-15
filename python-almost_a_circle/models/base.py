@@ -25,5 +25,15 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        filename = list_objs + "json"
+        dicti_list = []
+        filename = cls.__name__ + ".json"
         if list_objs is None:
+            f = open(filename, "w")
+            f.write('[]')
+            f.close()
+        else:
+            for i in list_objs:
+                dicti_list.append(i.to_dictionary())
+            f = open(filename, "w")
+            f.write(Base.to_json_string(dicti_list))
+            f.close()
