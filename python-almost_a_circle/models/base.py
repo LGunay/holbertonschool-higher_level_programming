@@ -60,7 +60,7 @@ class Base:
         r = []
         with open(filename, "r") as f:
             text = f.read()
-        obj_list = Base.from_json_stirng(text)
+        obj_list = Base.from_json_string(text)
         for obj in obj_list:
             r.append(cls.create(**obj))
         return r
