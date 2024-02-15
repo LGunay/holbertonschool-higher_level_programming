@@ -37,3 +37,10 @@ class Base:
             f = open(filename, "w")
             f.write(Base.to_json_string(dicti_list))
             f.close()
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None:
+            return []
+        else:
+            return json.loads(json_string)
